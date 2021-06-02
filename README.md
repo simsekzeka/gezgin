@@ -23,6 +23,15 @@ Varsayılan olarak  geçerli olan değerler
 >adet=str(Getir(sonuc,parametre)) # string türündeki cevap **str**(Getir(...)) ile alınmıştır.
 >
 >uniteler=list(Getir(sonuc,parametre)) # list türündeki cevap **list**(Getir(...))  ile alınmıştır.
-- **cekilecek:**Çekilecek verinin yapısını oluşturan, metod içermeyen sınıftır. 
->parametre=cekilecek("span","class","totalCount") #*span* tag'ine sahip, *class* attribute'unun değeri *totalCount* olan veri çekilecek
+- **cekilecek:** Html kodları arasından çekilecek olan verinin kriterlerini oluşturan, metod içermeyen bir sınıftır. 
+>parametre1=cekilecek("span","class","totalCount") #*span* tag'ine sahip, *class* attribute'unun değeri *totalCount* olan veri çekilir.
+>parametre2=cekilecek("a","href") #a tag'inin href attribute'na ait değeri (linki) çeker.
+>parametre3=cekilecek("a") #a tag'ine ait veri çekilir: <a ..(tag içerisindeki attribute ve değerlere bakmaksızın)..> burada yer alan **tüm** içerik çekilecektir. </a>
+### Ayrac1, Ayrac2, sira ve Konteyner opsiyonel parametreler içerir.
+**Ayraçlar**, basit bir split işlemini gerçekleştirir. Örn. çekilen verinin "....With:90%...." kısmındaki "90" değerine ulaşmak için: Ayrac1=("width:",1),Ayrac2=("%",0)
+**sira**, aynı kritere sahip birden fazla sonuç varsa sira parametresinde verilen değer**inci** sonucu döndürür. Örn. çekilen sayfadaki 4. linki almak için 
+>parametre4=cekilecek("a",sira=3)
+Ayraçlar ve sira, kodlamada sırasında uğraşmak gerekmesin diye sınıf içerisine eklenmiş kolaylaştırıcı yöntemlerdir.
+Fakat Konteyner daha önemli bir görevi üstlenir.
+>parametre5=cekilecek("a","href",Konteyner=parametre1) # sayfa içeriğinde çok fazla link bulunacağından belli bir bölgeyi işleme almak için Konteyner parametresi kullanılır. Konteyner parametresi de yine **cekilecek** türünden bir nesnedir.
 - **urunArama:**
