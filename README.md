@@ -73,12 +73,26 @@ Konteyner parametresi de yine **cekilecek** türünden bir nesnedir.
 
 >sonuc=self.ty.anaSayfa(sayfadakiUrunler,toplamUrunSayisi)
 
-Şayet dönen **sonuc** False ise işlem başarısız demektir.
+Şayet dönen **sonuc** False ise işlem başarısız demektir ve tarama sonlandırılır.
 
--True değeri dönerse herşey yolunda demektir. Ürün bazında çekilecek (işin sonunda excel tablosuna aktarılacak) verilerin sütun başlıklarıyla birlikte tanımlanması gerekir.
+-Sırada, ürün bazında çekilecek (işin sonunda excel tablosuna aktarılacak) verilerin sütun başlıklarıyla birlikte sözlük olarak tanımlanması var:
+
+>aramaMotoru.sutunlar={"Marka":gz.cekilecek("span","class","prdct-desc-cntnr-ttl"),
+>
+>      "Ürün":gz.cekilecek("span","class","prdct-desc-cntnr-name hasRatings"),
+>      
+>      "Puan":gz.cekilecek("div","class","star-w",("width:",1),("%",0),sira=4),
+>      
+>      "Eski fiyat":gz.cekilecek("div","class","prc-box-orgnl"),
+>      
+>      "Fiyatı":gz.cekilecek("div","class","prc-box-sllng"),
+>      
+>      "Oylanma":gz.cekilecek("span","class","ratingCount"),
+>      
+>      "Link":gz.cekilecek("a","href")}
 
 -Ve artık **sayfalardaGez**meye başlayabiliriz!...
 
->listemiz=self.ty.sayfalardaGez(20) #sonuç list türünden veri olarak göndürülür.
+>listemiz=aramaMotoru.sayfalardaGez(20) #sonuç list türünden veri olarak göndürülür.
 
 Parametre olarak girilen 20 değeri, threading (eş zamanlı çalışacak iş parçacığı) sayısını ifade eder. Boş bırakılırsa taranacak sayfa kadar fazla threading oluşturulacaktır.
