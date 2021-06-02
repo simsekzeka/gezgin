@@ -77,8 +77,8 @@ Konteyner parametresi de yine **cekilecek** türünden bir nesnedir.
 
 -Sırada, ürün bazında çekilecek (işin sonunda excel tablosuna aktarılacak) verilerin sütun başlıklarıyla birlikte sözlük olarak tanımlanması var:
 
->aramaMotoru.sutunlar={"Marka":gz.cekilecek("span","class","prdct-desc-cntnr-ttl"),
->
+>      aramaMotoru.sutunlar={"Marka":gz.cekilecek("span","class","prdct-desc-cntnr-ttl"),
+>      
 >      "Ürün":gz.cekilecek("span","class","prdct-desc-cntnr-name hasRatings"),
 >      
 >      "Puan":gz.cekilecek("div","class","star-w",("width:",1),("%",0),sira=4),
